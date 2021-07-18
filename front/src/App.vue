@@ -52,7 +52,7 @@ export default Vue.extend({
     generate() {
       const api = new GenerateApi(
         new Configuration(),
-        "https://mizuoka-generator.an.r.appspot.com/",
+        "https://mizuoka-generator.an.r.appspot.com",
         fetch
       );
       api.generatePost(this.text).then((res) => {
