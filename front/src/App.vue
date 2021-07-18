@@ -58,6 +58,7 @@ export default Vue.extend({
   methods: {
     generate() {
       this.isLoading = true;
+      this.isSuccess = false;
       const api = new GenerateApi(
         new Configuration(),
         "https://mizuoka-generator.an.r.appspot.com",
@@ -67,6 +68,9 @@ export default Vue.extend({
         this.isLoading = false;
         this.location = res.location;
         this.isSuccess = true;
+      })
+      .catch((res) => {
+        this.isLoading = false;
       });
     },
   },
