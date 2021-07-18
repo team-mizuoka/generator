@@ -4,8 +4,7 @@ steps:
     dir: "front"
     id: "front:install_dep"
   - name: "gcr.io/cloud-builders/npm"
-    args: ["ci"]
-    args: ["run build-prod"]
+    args: ["run", "build-prod"]
     dir: "front"
     id: "front:build"
     waitFor: ["front:install_dep"]
