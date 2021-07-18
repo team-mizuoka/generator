@@ -40,7 +40,7 @@ components:
     GenerateResponse:
       type: object
       required:
-        - text
+        - location
       properties:
         location:
           type: string
