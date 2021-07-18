@@ -31,4 +31,3 @@ node dist/bundle.js
 ## Credits
 
 Made with [createapp.dev](https://createapp.dev/)
-

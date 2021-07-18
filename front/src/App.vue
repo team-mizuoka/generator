@@ -1,22 +1,21 @@
-
 <template>
   <div>
     <h1>
-      {{name}}
+      {{ name }}
     </h1>
   </div>
 </template>
 
 <script lang="ts">
-  import Vue from "vue";
+import Vue from "vue";
 
-  export default Vue.extend({
-    data: function() {
-      return {
-        name: 'Hello World!',
-      }
-    },
-  });
+export default Vue.extend({
+  data: function () {
+    return {
+      name: "Hello World!",
+    };
+  },
+});
 </script>
 
 <style lang="scss">
