@@ -42,5 +42,5 @@ components:
       required:
         - text
       properties:
-        text:
+        location:
           type: string
