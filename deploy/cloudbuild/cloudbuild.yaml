@@ -9,7 +9,7 @@ steps:
     id: "front:build"
     waitFor: ["front:install_dep"]
   - name: "gcr.io/$PROJECT_ID/firebase"
-    args: ["deploy"]
+    args: ["deploy", "--project=$PROJECT_ID", "--only=hosting"]
     waitFor: ["front:build"]
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
