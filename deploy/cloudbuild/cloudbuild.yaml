@@ -6,6 +6,7 @@ steps:
   - name: "gcr.io/cloud-builders/npm"
     args: ["ci"]
     args: ["run build-prod"]
+    dir: "front"
     id: "front:build"
     waitFor: ["front:install_dep"]
   - name: "gcr.io/$PROJECT_ID/firebase"
