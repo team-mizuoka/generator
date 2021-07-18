@@ -1,17 +1,18 @@
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      - "app"
-      - "deploy"
-      - "deploy/appengine/backend.yaml"
   - name: "gcr.io/cloud-builders/npm"
     args: ["ci"]
     dir: "front"
     id: "front:install_dep"
   - name: "gcr.io/cloud-builders/npm"
+    args: ["ci"]
     args: ["build-prod"]
     id: "front:build"
     waitFor: ["front:install_dep"]
   - name: "gcr.io/$PROJECT_ID/firebase"
     args: ["deploy"]
     waitFor: ["front:build"]
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - "app"
+      - "deploy"
+      - "deploy/appengine/backend.yaml"
