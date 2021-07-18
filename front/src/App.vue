@@ -1,22 +1,65 @@
 <template>
   <div>
-    <section class="section">
-      <div class="container">
-        <h1 class="title">
-          Hello World
-        </h1>
-        <p class="subtitle">
-          My first website with <strong>Bulma</strong>!
-        </p>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <h1 class="title">Mizuoka Generator</h1>
+        <p class="subtitle">水岡が喋ります</p>
       </div>
     </section>
+
+    <div class="container">
+      <p class="has-text-centered">
+        水岡に喋らせたい言葉を入れてください(最大50文字)
+      </p>
+      <input
+        v-model="text"
+        class="input"
+        type="text"
+        placeholder="水岡に喋らせたい言葉を入れる"
+        maxlength="50"
+      />
+      <div class="buttons is-centered">
+        <button @click="generate" class="button is-primary">生成</button>
+      </div>
+    </div>
+
+    <div v-if="isSuccess" class="container">
+      <h2 class="title is-2">生成された画像</h2>
+      <div class="columns is-flex is-centered">
+        <figure class="image is-128x128">
+          <img :src="location" />
+        </figure>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import "./styles.scss"
+import "./styles.scss";
+import "./lib/api";
+import { Configuration, GenerateApi } from "./lib/api";
 
 export default Vue.extend({
+  data: function () {
+    return {
+      text: "",
+      location: "",
+      isSuccess: false,
+    };
+  },
+  methods: {
+    generate() {
+      const api = new GenerateApi(
+        new Configuration(),
+        "https://mizuoka-generator-backend.appspot.com",
+        fetch
+      );
+      api.generatePost(this.text).then((res) => {
+        this.location = res.location;
+        this.isSuccess = true;
+      });
+    },
+  },
 });
 </script>

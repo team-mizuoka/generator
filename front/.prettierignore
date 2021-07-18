@@ -1,1 +1,3 @@
-src/lib/api
+dist/
+.cache/
+src/lib/api/

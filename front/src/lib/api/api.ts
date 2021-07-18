@@ -101,7 +101,7 @@ export interface GenerateResponse {
      * @type {string}
      * @memberof GenerateResponse
      */
-    text: string;
+    location: string;
 }
 /**
  * GenerateApi - fetch parameter creator
@@ -122,7 +122,7 @@ export const GenerateApiFetchParamCreator = function (configuration?: Configurat
             const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-            const localVarFormParams = new url.URLSearchParams();
+            const localVarFormParams = new URLSearchParams();
 
             if (text !== undefined) {
                 localVarFormParams.set('text', text as any);
