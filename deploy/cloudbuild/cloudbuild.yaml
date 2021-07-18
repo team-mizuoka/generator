@@ -12,5 +12,4 @@ steps:
     args: ["deploy", "--project=$PROJECT_ID", "--only=hosting"]
     waitFor: ["front:build"]
   - name: "gcr.io/cloud-builders/gcloud"
-    entrypoint: "bash"
     args: ["app", "deploy", "./back/back.yaml"]
