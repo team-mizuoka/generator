@@ -11,7 +11,7 @@ steps:
   - name: "gcr.io/$PROJECT_ID/firebase"
     args: ["deploy", "--project=$PROJECT_ID", "--only=hosting"]
     waitFor: ["front:build"]
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: "gcr.io/cloud-builders/gcloud"
     entrypoint: 'bash'
     args: ['-c', 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy ./back/back.yaml']
     timeout: '1600s'
