@@ -23,6 +23,10 @@ post "/generate" do
   pos_x = 205
   pos_y = 145
   text = params["text"]
+    .slice(0, 50)
+    .each_char
+    .each_slice(10)
+    .map { |s| s.join("\n") }
 
   quote.annotate(img, width, height, pos_x, pos_y, text) do
     self.font = "assets/mplus-1p-medium.otf"
