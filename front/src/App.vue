@@ -19,7 +19,13 @@
         maxlength="50"
       />
       <div class="buttons is-centered">
-        <button @click="generate" class="button is-primary">生成</button>
+        <button
+          @click="generate"
+          :class="{ 'is-loading': isLoading }"
+          class="button is-primary"
+        >
+          生成
+        </button>
       </div>
     </div>
 
@@ -46,16 +52,19 @@ export default Vue.extend({
       text: "",
       location: "",
       isSuccess: false,
+      isLoading: false,
     };
   },
   methods: {
     generate() {
+      this.isLoading = true;
       const api = new GenerateApi(
         new Configuration(),
         "https://mizuoka-generator.an.r.appspot.com",
         fetch
       );
       api.generatePost(this.text).then((res) => {
+        this.isLoading = false;
         this.location = res.location;
         this.isSuccess = true;
       });
