@@ -26,7 +26,8 @@ post "/generate" do
     .slice(0, 50)
     .each_char
     .each_slice(10)
-    .map { |s| s.join("\n") }
+    .map { |s| s.join }
+    .join("\n")
 
   quote.annotate(img, width, height, pos_x, pos_y, text) do
     self.font = "assets/mplus-1p-medium.otf"
