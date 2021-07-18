@@ -2,6 +2,7 @@ require "tempfile"
 require "securerandom"
 require "sinatra"
 require "sinatra/json"
+require "sinatra/cors"
 require "rmagick"
 require "./uploader.rb"
 
