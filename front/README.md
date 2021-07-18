@@ -1,4 +1,4 @@
-# mizuoka-generator
+# empty-project
 
 Empty project.
 
