@@ -5,6 +5,11 @@ require "sinatra/json"
 require "rmagick"
 require "./uploader.rb"
 
+set :allow_origin, "https://mizuoka-generator.web.app"
+set :allow_methods, "GET,POST"
+set :allow_headers, "content-type"
+set :expose_headers, "location,link"
+
 uploader = CloudStorageUploader.new
 
 post "/generate" do
