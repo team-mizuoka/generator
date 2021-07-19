@@ -8,17 +8,17 @@
     </section>
 
     <div class="container">
-      <p class="has-text-centered">
+      <p class="mt-3 has-text-centered">
         水岡に喋らせたい言葉を入れてください(最大50文字)
       </p>
       <input
         v-model="text"
-        class="input"
+        class="input mt-3"
         type="text"
         placeholder="水岡に喋らせたい言葉を入れる"
         maxlength="50"
       />
-      <div class="buttons is-centered">
+      <div class="buttons is-centered mt-3">
         <button
           @click="generate"
           :class="{ 'is-loading': isLoading }"
@@ -30,7 +30,7 @@
     </div>
 
     <div v-if="isSuccess" class="container mt-5">
-      <h2 class="title is-2">生成された画像</h2>
+      <h2 class="title is-2 has-text-centered">生成された画像</h2>
       <div class="columns is-flex is-centered">
         <figure class="image is-128x128">
           <img :src="location" />
