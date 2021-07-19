@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div v-if="isSuccess" class="container">
+    <div v-if="isSuccess" class="container mt-5">
       <h2 class="title is-2">生成された画像</h2>
       <div class="columns is-flex is-centered">
         <figure class="image is-128x128">
